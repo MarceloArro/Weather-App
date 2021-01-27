@@ -1,11 +1,13 @@
-import 'package:weather_flutter/domain/model/product.dart';
-import 'package:weather_flutter/domain/model/user.dart';
-import 'package:weather_flutter/domain/request/login_request.dart';
-import 'package:weather_flutter/domain/response/login_response.dart';
+import 'package:latlng/latlng.dart';
+import 'package:weather_flutter/domain/request/one_call_request.dart';
+import 'package:weather_flutter/domain/response/current_response.dart';
+import 'package:weather_flutter/domain/response/geo_response.dart';
+import 'package:weather_flutter/domain/response/onecall_response.dart';
 
 abstract class ApiRepositoryInterface {
-  Future<User> getUserFromToken(String token);
-  Future<LoginResponse> login(LoginRequest login);
-  Future<void> logout(String token);
-  Future<List<Product>> getProducts();
+  Future<CurrentResponse> getCurrentWeatherByLocation(LatLng location);
+  Future<CurrentResponse> getCurrentWeatherByCityName(String city);
+  Future<GeoResponse> getCityLocalizatinNameByDirect(String city);
+  Future<GeoResponse> getCityLocalizatinNameByindirect(LatLng location);
+  Future<OneCallResponse> getOneCallData(OneCallRequest oneCallRequest);
 }

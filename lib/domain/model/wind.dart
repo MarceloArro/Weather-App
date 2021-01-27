@@ -5,8 +5,8 @@ class Wind {
   Wind({this.speed, this.deg});
 
   Wind.fromJson(Map<String, dynamic> json) {
-    speed = json['speed'];
-    deg = json['deg'];
+    speed = json['speed'] as double;
+    deg = json['deg'] as int;
   }
 
   Map<String, dynamic> toJson() {
@@ -23,7 +23,7 @@ class Clouds {
   Clouds({this.all});
 
   Clouds.fromJson(Map<String, dynamic> json) {
-    all = json['all'];
+    all = json['all'] as int;
   }
 
   Map<String, dynamic> toJson() {
